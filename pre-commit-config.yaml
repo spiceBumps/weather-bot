@@ -1,0 +1,6 @@
+repos:
+- repo: https://github.com/psf/black
+  rev: 24.8.0  # Укажите актуальную версию black (можно проверить на https://github.com/psf/black/releases)
+  hooks:
+  - id: black
+    args: [--line-length=88]  # Опционально: настройте длину строки, если хотите
