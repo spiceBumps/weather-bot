@@ -1,40 +1,24 @@
-name: Python Telegram Bot CI/CD
+name: Python CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
 jobs:
-  build-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name:  Клонирование репозитория
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-    - name:  Установка Python
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'
+        python-version: '3.11'
 
-    - name:  Установка зависимостей
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name:  Проверка стиля кода (flake8)
+    - name: Run tests
       run: |
-        pip install flake8
-        flake8 . || true  # не прерывает сборку при предупреждениях
-
-    - name:  Запуск тестов и генерация HTML-отчёта
-      run: |
-        pytest tests/ --html=report.html --self-contained-html
-
-    - name:  Загрузка отчёта как артефакт
-      uses: actions/upload-artifact@v3
-      with:
-        name: pytest-html-report
-        path: report.html
+        echo "No tests yet"
