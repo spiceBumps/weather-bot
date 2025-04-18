@@ -4,7 +4,7 @@ import pytest
 from weather_api import get_weather
 from bott import connect, init_db, get_or_create_city_id
 
-API_KEY = "6596f316a56103539735bd87c6246997" 
+API_KEY = "6596f316a56103539735bd87c6246997"
 
 
 def test_get_weather_valid_city():
@@ -14,17 +14,18 @@ def test_get_weather_valid_city():
     assert "temperature" in result
     assert "description" in result
 
+
 def test_get_weather_invalid_city():
     result = get_weather("NarniaRandomFake", API_KEY)
     assert "error" in result
     assert "Город не найден" in result["error"]
 
 
-
 def test_db_connection():
     conn = connect()
     assert isinstance(conn, sqlite3.Connection)
     conn.close()
+
 
 def test_city_insert_and_fetch():
     conn = connect()

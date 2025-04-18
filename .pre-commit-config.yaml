@@ -1,0 +1,6 @@
+repos:
+- repo: https://github.com/psf/black
+  rev: 24.8.0  # Последняя стабильная версия black на октябрь 2024
+  hooks:
+  - id: black
+    args: [--line-length=88]  # Длина строки, соответствует стандарту black

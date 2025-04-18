@@ -1,8 +1,9 @@
 import os
 from weather_api import get_weather, close_logger
 
+
 def test_logging_error():
-    log_file = 'error.log'
+    log_file = "error.log"
 
     if os.path.exists(log_file):
         os.remove(log_file)
@@ -15,7 +16,7 @@ def test_logging_error():
 
     assert os.path.exists(log_file)
 
-    with open(log_file, 'r', encoding='utf-8') as f:
+    with open(log_file, "r", encoding="utf-8") as f:
         content = f.read()
         print("\n\n[DEBUG LOG CONTENT]\n", content)
 
