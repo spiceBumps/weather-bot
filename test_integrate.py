@@ -37,3 +37,6 @@ def test_full_weather_flow():
     assert result[0] == TEST_CITY
     assert isinstance(result[1], float)  # температура
     assert isinstance(result[2], str)  # описание
+
+
+print("Тесты прошли успешно!")
